@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <style>
+        /* General body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url("{% static 'DiabetesPrediction/images/img2.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            background: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00796b; /* Soft teal color */
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            margin: 0 auto 15px auto;
+            width: 100%;
+        }
+
+        table td {
+            padding: 8px;
+        }
+
+        table td:first-child {
+            text-align: right;
+            color: #333; /* Slightly darker text for contrast */
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        table td:last-child {
+            text-align: left;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #00796b; /* Focused teal border */
+            box-shadow: 0 0 4px rgba(0, 121, 107, 0.4);
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(90deg, #00796b, #48c6ef); /* Teal to blue gradient */
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #48c6ef, #00796b); /* Reverse gradient */
+        }
+
+        p {
+            font-size: 14px;
+            color: #004d40; /* Muted teal for subtlety */
+            margin-top: 10px;
+        }
+
+        .result {
+            font-size: 24px; /* Large font size */
+            font-weight: bold; /* Bold text */
+            color: #d32f2f; /* Bright red color for attention */
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Please Enter the Following</h1>
+        <form action="result">
+            <table>
+                <tr>
+                    <td>Pregnancies:</td>
+                    <td><input type="number" name="n1" required step="1"></td> <!-- Only integers allowed -->
+                </tr>
+                <tr>
+                    <td>Glucose:</td>
+                    <td><input type="number" name="n2" required step="any"></td> <!-- Integers or floats -->
+                </tr>
+                <tr>
+                    <td>Blood Pressure:</td>
+                    <td><input type="number" name="n3" required step="any"></td> <!-- Integers or floats -->
+                </tr>
+                <tr>
+                    <td>Skin Thickness:</td>
+                    <td><input type="number" name="n4" required step="any"></td> <!-- Integers or floats -->
+                </tr>
+                <tr>
+                    <td>Insulin:</td>
+                    <td><input type="number" name="n5" required step="any"></td> <!-- Integers or floats -->
+                </tr>
+                <tr>
+                    <td>BMI:</td>
+                    <td><input type="number" name="n6" required step="any"></td> <!-- Integers or floats -->
+                </tr>
+                <tr>
+                    <td>Diabetes Pedigree:</td>
+                    <td><input type="number" name="n7" required step="any"></td> <!-- Integers or floats -->
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="number" name="n8" required step="1"></td> <!-- Only integers allowed -->
+                </tr>
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+        <p class="result">Result: {{ result2 }}</p>
+    </div>
+</body>
+</html>

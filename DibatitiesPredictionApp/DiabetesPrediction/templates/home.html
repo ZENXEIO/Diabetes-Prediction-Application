@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        /* General body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url("{% static 'DiabetesPrediction/images/img1.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Gradient overlay effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 50, 0.9), rgba(0, 128, 255, 0.2));
+            z-index: 1;
+        }
+
+        /* Container styling */
+        .container {
+            position: relative;
+            z-index: 2; /* Ensures content stays above the overlay */
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1); /* Glass-like effect */
+            padding: 40px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px); /* Blur effect for glassy look */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        /* Heading styles */
+        h1 {
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d4ff, #4caf50); /* Soothing cyan to green gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowing-text 3s infinite alternate;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: lighter;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        /* Button styles */
+        input[type="submit"] {
+            background: linear-gradient(90deg, #007bff, #00d4ff); /* Blue to cyan gradient */
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        /* Glowing text animation */
+        @keyframes glowing-text {
+            from {
+                opacity: 1;
+                text-shadow: 0 0 10px #00d4ff, 0 0 20px #4caf50, 0 0 30px #00d4ff;
+            }
+            to {
+                opacity: 0.9;
+                text-shadow: 0 0 15px #4caf50, 0 0 30px #00d4ff, 0 0 45px #4caf50;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 35px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            input[type="submit"] {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction</h1>
+        <h2>Start your health journey today with our advanced prediction tool.</h2>
+        <form action="predict">
+            <input type="submit" value="Start Now">
+        </form>
+    </div>
+</body>
+</html>
